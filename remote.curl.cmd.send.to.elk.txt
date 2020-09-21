@@ -1,0 +1,25 @@
+###CURL###
+
+curl -XPOST "http://192.168.0.72:8080/curltest2/_doc" -H 'Content-Type: application/json' -d '{
+"test" : "hello, world!"
+}
+'
+
+###curl working###
+
+curl -i -XPOST http://192.168.0.72:8484/ -H "Content-type: application/json" -d '
+{
+"test":"hello,world!",
+"foo":"bar"
+}
+'
+
+### test on remote client ###
+
+while true; do curl -i -XPOST http://192.168.0.72:8484/ -H "Content-type: application/json" -d '
+{
+"host":"${host}",
+"date":"${date}"
+}
+'; sleep 5s; done
+
